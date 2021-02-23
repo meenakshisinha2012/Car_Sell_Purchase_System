@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wu.bean.CarBean;
 import com.wu.bean.Users;
 import com.wu.dao.CustomerDao;
 import com.wu.dao.LoginDao;
@@ -43,7 +44,7 @@ public class ProcessLoginServlet extends HttpServlet {
 			request.getRequestDispatcher("Seller.jsp").forward(request, response);
 		}else if(resultValidate.equals("Customer")){
 			CustomerDao custdao = new CustomerDaoImpl();
-			List<cardata> cars = custdao.getAllCars();
+			List<CarBean> cars = custdao.getAllCars();
 			request.setAttribute("Cars", cars);
 			request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		}else{

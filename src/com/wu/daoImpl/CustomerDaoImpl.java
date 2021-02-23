@@ -8,15 +8,16 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import com.wu.bean.CarBean;
 import com.wu.dao.CustomerDao;
 import com.wu.hibernate.util.HibernateUtil;
 
 public class CustomerDaoImpl implements CustomerDao {
 
-	public List<cardata> getAllCars()
+	public List<CarBean> getAllCars()
 	{
 		String hql = "from cardata";
-		List<cardata> cars = new ArrayList<>();
+		List<CarBean> cars = new ArrayList<>();
 		try(Session session = HibernateUtil.getSessionFactory().getCurrentSession())
 		{
 			Transaction tx = session.beginTransaction();

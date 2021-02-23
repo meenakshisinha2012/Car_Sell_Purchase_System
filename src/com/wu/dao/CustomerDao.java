@@ -1,10 +1,11 @@
 package com.wu.dao;
 
-import com.wu.controller.List;
-import com.wu.controller.cardata;
+import java.util.List;
+
+import com.wu.bean.CarBean;
 
 public interface CustomerDao {
 
-	List<cardata> getAllCars();
+	List<CarBean> getAllCars();
 
 }
