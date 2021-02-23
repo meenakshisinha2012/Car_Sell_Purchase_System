@@ -36,6 +36,7 @@
 		
 		<!--when using annotation for mapping  -->
 		<mapping class="com.wu.bean.Users"/>
+		<mapping class="com.wu.bean.CarBean"/>
        
     </session-factory>
 </hibernate-configuration>
