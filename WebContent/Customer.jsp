@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Customer Page</title>
 </head>
 <body>
+
+Car Type	Car Name 	Colour 		Age(Max Yrs) 	Cost
 
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.wu.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wu.bean.Users;
+import com.wu.dao.CustomerDao;
 import com.wu.dao.LoginDao;
+import com.wu.daoImpl.CustomerDaoImpl;
 import com.wu.daoImpl.LoginDaoImpl;
 
 
@@ -36,13 +39,16 @@ public class ProcessLoginServlet extends HttpServlet {
 		String resultValidate = loginDao.validateUser(user);
 		System.out.println(resultValidate);
 
-//		if(resultValidate.equals("Seller")){
-//			request.getRequestDispatcher("Seller.jsp").forward(request, response);
-//		}else if(resultValidate.equals("Customer")){
-//			request.getRequestDispatcher("Customer.jsp").forward(request, response);
-//		}else{
-//			request.setAttribute("errorMsg", resultValidate);
-//			request.getRequestDispatcher("Login.jsp").forward(request, response);
-//		}
+		if(resultValidate.equals("Seller")){
+			request.getRequestDispatcher("Seller.jsp").forward(request, response);
+		}else if(resultValidate.equals("Customer")){
+			CustomerDao custdao = new CustomerDaoImpl();
+			List<cardata> cars = custdao.getAllCars();
+			request.setAttribute("Cars", cars);
+			request.getRequestDispatcher("Customer.jsp").forward(request, response);
+		}else{
+			request.setAttribute("errorMsg", resultValidate);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
+		}
 	}
 }

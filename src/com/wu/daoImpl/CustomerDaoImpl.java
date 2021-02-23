@@ -1,5 +1,33 @@
 package com.wu.daoImpl;
 
-public class CustomerDaoImpl {
+import java.util.ArrayList;
+import java.util.List;
 
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import com.wu.dao.CustomerDao;
+import com.wu.hibernate.util.HibernateUtil;
+
+public class CustomerDaoImpl implements CustomerDao {
+
+	public List<cardata> getAllCars()
+	{
+		String hql = "from cardata";
+		List<cardata> cars = new ArrayList<>();
+		try(Session session = HibernateUtil.getSessionFactory().getCurrentSession())
+		{
+			Transaction tx = session.beginTransaction();
+			Query query = session.createQuery(hql);
+			cars = query.getResultList();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		return cars;
+	}
 }
