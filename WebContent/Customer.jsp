@@ -33,34 +33,39 @@
 </form>
 
 <div class="container h-100"> <!-- Place page in centre -->
-<form name="seletionForm">
+<form name="seletionForm" action="ProcessFilterServlet">
 
 	<select class="form-group mx-sm-3 mb-2" id = "car_type" name = "carTypeDropDown">
-  	<option>Select Type</option>
-  	<option>---Select---</option>
+  	<option value=null>Select Type</option>
+  	<option value=null>---Select---</option>
   	<c:forEach items="${requestScope.Types}" var="typeitems">
 		<option value="${typeitems}">${typeitems} </option>
 	</c:forEach>
   </select>
 
 <select class="form-group mx-sm-3 mb-2" id = "car_color" name = "carColorDropDown">
-  	<option>Select Color</option>
-  	<option>---Select---</option>
+  	<option value=null>Select Color</option>
+  	<option value=null>---Select---</option>
   	<c:forEach items="${requestScope.Colors}" var="typeitems">
 		<option value="${typeitems}">${typeitems} </option>
 	</c:forEach>
 </select>
 	
 
-	<input class="form-group mx-sm-3 mb-2" type="text" placeholder="Name">
+	<input class="form-group mx-sm-3 mb-2" type="text" placeholder="Car Name" name="carname">
 	
-	<input class="form-group mx-sm-3 mb-2" type="text" placeholder="Age">
+	<input class="form-group mx-sm-3 mb-2" type="text" placeholder="Age" name="age">
 	
-	<input class="form-group mx-sm-3 mb-2" type="text" placeholder="Cost">
-	
+<select class="form-group mx-sm-3 mb-2" id = "cost_range" name = "CostRangeDropDown">
+  	<option value=null>Select Range</option>
+  	<option value=null>---Select---</option>
+  	<option value="<5"> Less than 5L</option>
+  	<option value="5-10"> 5L - 10L</option>
+  	<option value=">10"> More than 10L</option>
+  	</select>	
+  	
+  	
 	<button type="submit" class="btn btn-primary mb-2">Search</button>
-
-
 
 <br>
 </form>
