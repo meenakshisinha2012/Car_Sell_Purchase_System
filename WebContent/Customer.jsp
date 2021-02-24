@@ -1,5 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,32 +15,27 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- BootStrap Table End -->
 
-<title>Cutomer Page</title>
+<title>Customer Page</title>
 </head>
 <body>
 <div class="container h-100"> <!-- Place page in centre -->
 <form name="seletionForm">
-<!-- Selection starts -->
-<div class="dropdown">
-	<br>
-	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" name ="cartypeDropBtn">
-	Car Type
-	</button>
-	<div class="dropdown-menu" name ="cartypeDropDown">
-		<a class="dropdown-item" href="#">Link 1</a>
-		<a class="dropdown-item" href="#">Link 2</a>
-		<a class="dropdown-item" href="#">Link 3</a>
-	</div>
+
+	<select class="form-group mx-sm-3 mb-2" id = "car_type" name = "carTypeDropDown">
+  	<option>Default select</option>
+  	<c:forEach items="${requestScope.Types}" var="typeitems">
+		<option value="${typeitems}">${typeitems} </option>
+	</c:forEach>
+  </select>
+
+<select class="form-group mx-sm-3 mb-2" id = "car_color" name = "carColorDropDown">
+  	<option>Default select</option>
+  	<c:forEach items="${requestScope.Colors}" var="typeitems">
+		<option value="${typeitems}">${typeitems} </option>
+	</c:forEach>
+</select>
 	
-	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" name ="carColorDropBtn">
-	Car Color
-	</button>
-	<div class="dropdown-menu" name ="carColorDropDown">
-		<a class="dropdown-item" href="#">Link 1</a>
-		<a class="dropdown-item" href="#">Link 2</a>
-		<a class="dropdown-item" href="#">Link 3</a>
-	</div>
-	
+
 	<input class="form-group mx-sm-3 mb-2" type="text" placeholder="Name">
 	
 	<input class="form-group mx-sm-3 mb-2" type="text" placeholder="Age">
@@ -45,7 +43,8 @@
 	<input class="form-group mx-sm-3 mb-2" type="text" placeholder="Cost">
 	
 	<button type="submit" class="btn btn-primary mb-2">Search</button>
-</div>
+
+
 
 <br>
 </form>
@@ -66,27 +65,15 @@
 		    </tr>
 		  </thead>
 		  <tbody>
+		  <c:forEach items="${requestScope.Cars}" var="items">
 		    <tr>
-		      <td>Sedan</td>
-		      <td>BMW</td>
-		      <td>Black</td>
-		      <td>4</td>
-		      <td>8000000</td>
+		      <td>${items.getType() }</td>
+		      <td>${items.getCar_name() }</td>
+		      <td>${items.getColor() }</td>
+		      <td>${items.getAge() }</td>
+		      <td>${items.getCost() }</td>
 		    </tr>
-		    <tr>
-		      <td>Suv</td>
-		      <td>GLS</td>
-		      <td>Black</td>
-		      <td>2</td>
-		      <td>9000000</td>
-		    </tr>
-		    <tr>
-		      <td>Electric</td>
-		      <td>Telsa</td>
-		      <td>Red</td>
-		      <td>3</td>
-		      <td>9000000</td>
-		    </tr>
+		    </c:forEach>
 		  </tbody>
 		</table>
 	</div> <!-- Table div ends -->

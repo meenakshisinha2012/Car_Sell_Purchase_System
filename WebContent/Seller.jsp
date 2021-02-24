@@ -24,41 +24,41 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container h-100">
+	<br>
+	<form action = "CarSell">
+		<label for="car_type">Car Type :</label>
+			<select class="form-control" id = "car_type" name = "carType">
+				<option>Default select</option>
+				<option value = "sports">Sports</option>
+				<option value = "sedan">Sedan</option>
+				<option value = "hatchBack">Hatch Back</option>
+				<option value = "suv">SUV</option>
+			</select><br>
+	  
+	    <label for="owner_name">Owner Name :</label>
+	    <input type="text" class="form-control" id="owner_name" name = "ownerName" placeholder="Enter owner name"><br>
+
+	   <label for="car_name">Car Name :</label>
+	    <input type="text" class="form-control" id="car_name"  name = "carName" aria-describedby="carName" placeholder="Enter car name"><br>
 
 
-<form action = "CarSell">
-   <label for="car_type">Car Type :</label>
-  <select class="form-control" id = "car_type" name = "carType">
-  	<option>Default select</option>
-  	<option value = "sports">Sports</option>
-  	<option vallue = "sadan">Sadan</option>
-  	<option value = "hatchBack">Hatch Back</option>
-  	<option value = "suv">SUV</option>
-  </select>
-  <div class="form-group">
-    <label for="owner_name">Owner Name :</label>
-    <input type="text" class="form-control" id="owner_name" name = "ownerName" placeholder="Enter owner name">
-  </div>
-   <label for="car_name">Car Name: :</label>
-    <input type="text" class="form-control" id="car_name"  name = "carName" aria-describedby="carName" placeholder="Enter car name">
-  </div>
-  <div class="form-group">
-    <label for="car_age">Age :</label>
-    <input type="text" class="form-control" id="car_age" name = "carAge" placeholder="Enter car age">
-  </div>
-   <label for="car_cost">Cost :</label>
-    <input type="text" class="form-control" id="car_cost"  name = "carCost" aria-describedby="carCost" placeholder="Enter car cost">
-  
-  <div class="form-group">
-    <label for="car_color">Color :</label>
-    <input type="text" class="form-control" id="car_color" name = "color" placeholder="Enter car color">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" name = "negotiable" id="negotiable" value = "Yes" >
-    <label class="form-check-label" for="negotiable">Negotiable</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+	    <label for="car_age">Age :</label>
+	    <input type="text" class="form-control" id="car_age" name = "carAge" placeholder="Enter car age"><br>
 
+	   <label for="car_cost">Cost :</label>
+	    <input type="text" class="form-control" id="car_cost"  name = "carCost" aria-describedby="carCost" placeholder="Enter car cost"><br>
+	  
+
+	    <label for="car_color">Color :</label>
+	    <input type="text" class="form-control" id="car_color" name = "color" placeholder="Enter car color"><br>
+
+	  <div class="form-group form-check">
+	    <input type="checkbox" class="form-check-input" name = "negotiable" id="negotiable" value = "Yes" ><br>
+	    <label class="form-check-label" for="negotiable">Negotiable</label>
+	  </div>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
 </body>
 </html>

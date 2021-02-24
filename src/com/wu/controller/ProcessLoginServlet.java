@@ -45,7 +45,13 @@ public class ProcessLoginServlet extends HttpServlet {
 		}else if(resultValidate.equals("Customer")){
 			CustomerDao custdao = new CustomerDaoImpl();
 			List<CarBean> cars = custdao.getAllCars();
+			List<String> colors = custdao.getColorDropDown();
+			List<String> types = custdao.getTypeDropDown();
+			
+			System.out.println(colors);
 			request.setAttribute("Cars", cars);
+			request.setAttribute("Colors", colors);
+			request.setAttribute("Types", types);
 			request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		}else{
 			request.setAttribute("errorMsg", resultValidate);
