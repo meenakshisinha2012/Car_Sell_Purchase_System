@@ -29,13 +29,13 @@
         <property name="show_sql">true</property>
 
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
 
 		<!-- when using event.hbm.xml for mapping 
 		<mapping resource="Event.hbm.xml"/> -->
 		
 		<!--when using annotation for mapping  -->
-		<!-- <mapping class="com.wu.bean.Users"/> -->
+		<mapping class="com.wu.bean.Users"/>
 		<mapping class="com.wu.bean.CarBean"/>
        
     </session-factory>

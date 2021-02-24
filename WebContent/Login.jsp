@@ -34,7 +34,7 @@
 		</div>
 		<div class="row">
 			<div class="col-4 m-5 ">
-				<form action="ProcessLoginServlet">
+				<form method= "post" action="ProcessLoginServlet">
 					<div class="form-group">
 						<label for="username">Username</label> 
 						<input type="username" class="form-control" id="username" aria-describedby="username" name="username" placeholder="Enter username"> 

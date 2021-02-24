@@ -24,7 +24,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+	// For page Cashing
+	response.setHeader("Cache-Control", "no-cache, no-store , must-revalidate");
+	
+	// To check if user is logged in or NOT
+	if(session.getAttribute("username") == null)
+		response.sendRedirect("Login.jsp");
+%>
 
+<h3>Welcome ${username} !!</h3>
+
+<form action = "LogoutServlet">
+	<input type = "submit" value = "Logout" style = "float: right;">
+</form>
 
 <form action = "CarSell">
    <label for="car_type">Car Type :</label>

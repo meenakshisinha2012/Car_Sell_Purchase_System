@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.wu.bean.Users;
 import com.wu.dao.LoginDao;
@@ -36,13 +37,24 @@ public class ProcessLoginServlet extends HttpServlet {
 		String resultValidate = loginDao.validateUser(user);
 		System.out.println(resultValidate);
 
-//		if(resultValidate.equals("Seller")){
-//			request.getRequestDispatcher("Seller.jsp").forward(request, response);
-//		}else if(resultValidate.equals("Customer")){
-//			request.getRequestDispatcher("Customer.jsp").forward(request, response);
-//		}else{
-//			request.setAttribute("errorMsg", resultValidate);
-//			request.getRequestDispatcher("Login.jsp").forward(request, response);
-//		}
+		//Setting session values
+		HttpSession session = request.getSession();
+		session.setAttribute("username", username);
+		
+		if(resultValidate.equals("Seller")){
+			request.getRequestDispatcher("Seller.jsp").forward(request, response);
+		}else if(resultValidate.equals("Customer")){
+			request.getRequestDispatcher("Customer.jsp").forward(request, response);
+		}else{
+			request.setAttribute("errorMsg", resultValidate);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
+		}
 	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
+	
+	
 }
