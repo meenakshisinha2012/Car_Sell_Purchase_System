@@ -2,6 +2,7 @@ package com.wu.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.wu.bean.CarBean;
 import com.wu.bean.Users;
+import com.wu.dao.CustomerDao;
 import com.wu.dao.LoginDao;
+import com.wu.daoImpl.CustomerDaoImpl;
 import com.wu.daoImpl.LoginDaoImpl;
 
 
@@ -37,6 +41,7 @@ public class ProcessLoginServlet extends HttpServlet {
 		String resultValidate = loginDao.validateUser(user);
 		System.out.println(resultValidate);
 
+
 		//Setting session values
 		HttpSession session = request.getSession();
 		session.setAttribute("username", username);
@@ -44,11 +49,21 @@ public class ProcessLoginServlet extends HttpServlet {
 		if(resultValidate.equals("Seller")){
 			request.getRequestDispatcher("Seller.jsp").forward(request, response);
 		}else if(resultValidate.equals("Customer")){
+			CustomerDao custdao = new CustomerDaoImpl();
+			List<CarBean> cars = custdao.getAllCars();
+			List<String> colors = custdao.getColorDropDown();
+			List<String> types = custdao.getTypeDropDown();
+			
+			System.out.println(colors);
+			request.setAttribute("Cars", cars);
+			request.setAttribute("Colors", colors);
+			request.setAttribute("Types", types);
 			request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		}else{
 			request.setAttribute("errorMsg", resultValidate);
 			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
+
 	}
 
 	@Override
