@@ -12,7 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- BootStrap Table End -->
 
-<title>Customer Page</title>
+<title>Cutomer Page</title>
 </head>
 <body>
 <div class="container h-100"> <!-- Place page in centre -->
