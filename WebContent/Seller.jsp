@@ -26,9 +26,6 @@
 <body>
 
 <%
-	// For page Cashing
-	response.setHeader("Cache-Control", "no-cache, no-store , must-revalidate");
-	
 	// To check if user is logged in or NOT
 	if(session.getAttribute("username") == null)
 		response.sendRedirect("Login.jsp");
