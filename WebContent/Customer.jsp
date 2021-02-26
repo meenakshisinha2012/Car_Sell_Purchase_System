@@ -66,6 +66,7 @@
   	
   	
 	<button type="submit" class="btn btn-primary mb-2">Search</button>
+	<input type="submit" class="btn btn-secondary mb-2" name = "clearFilter" value = "Clear Filter">
 
 <br>
 </form>

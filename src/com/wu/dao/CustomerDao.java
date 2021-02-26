@@ -12,6 +12,6 @@ public interface CustomerDao {
 	List<CarBean> getTypeFilter(String type);
 	List<CarBean> getColorFilter(String color);
 	List<CarBean> getCostFilter(String cost);
-//	List<CarBean> getFilterAll(String carName, String carAge, String carCost, String carColor, String carType);
+	List<CarBean> getFilterAll(String carName, String carAge, String carCost, String carColor, String carType);
 
 }

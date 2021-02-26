@@ -26,28 +26,57 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col m-3">
-				<h1>Login Form</h1>
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+	<a class="navbar-brand"><Strong>AppName</Strong></a>
+	<form class="form-inline">
+		<!-- input class="form-control mr-sm-2" type="search" placeholder="Search"
+			aria-label="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+	</form>
+	</nav>
+	<!--  <div class="container h-100 row align-items-center">
+		<div class="container border border-primary">-->
+
+
+			<div class="container container-table border border-primary">
+				<div class="row vertical-center-row">
+					<div class="text-center col-md-4 col-md-offset-4 ">
+						<form method="post" action="ProcessLoginServlet">
+							<div class="form-group">
+								<label for="username">Username</label> <input
+									class="form-group mx-sm-3 mb-2 type="
+									username" class="form-control" id="username"
+									aria-describedby="username" name="username"
+									placeholder="Enter username">
+							</div>
+							<div class="form-group">
+								<label for="password">Password</label> 
+									<input class="form-group mx-sm-3 mb-2" type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+							</div>
+							<button type="submit" class="btn btn-primary">Login</button>
+						</form>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="row">
+
+
+			<!-- <div class="row">
 			<div class="col-4 m-5 ">
 				<form method= "post" action="ProcessLoginServlet">
 					<div class="form-group">
 						<label for="username">Username</label> 
-						<input type="username" class="form-control" id="username" aria-describedby="username" name="username" placeholder="Enter username"> 
+						<input class="form-group mx-sm-3 mb-2 type="username" class="form-control" id="username" aria-describedby="username" name="username" placeholder="Enter username"> 
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label> 
-						<input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+						<input class="form-group mx-sm-3 mb-2 type="password" class="form-control" id="password" name="password" placeholder="Enter password">
 					</div>
 					<button type="submit" class="btn btn-primary">Login</button>
 				</form>
 
 			</div>
-		</div>
-	</div>
+		</div> -->
+		<!--  </div>
+	</div>-->
 </body>
 </html>

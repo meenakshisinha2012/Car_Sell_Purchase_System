@@ -25,21 +25,25 @@ public class ProcessFilterServlet extends HttpServlet {
 		String carCost = request.getParameter("CostRangeDropDown");
 		String carColor = request.getParameter("carColorDropDown");
 		String carType = request.getParameter("carTypeDropDown");
+		String clearFilter = request.getParameter("clearFilter");
 		
-		 System.out.println(carName);
-		 System.out.println(carAge);
-		 System.out.println(carType);
-		 System.out.println(carColor);
-		System.out.println(carCost);
+		 System.out.println("CarName " +carName);
+		 System.out.println("Age "+ carAge);
+		 System.out.println("Type "+carType);
+		 System.out.println("Color "+carColor);
+		System.out.println("Cost "+carCost);
+		
+		
 		if(carCost.equals("<5"))
 			carCost = "cost < 500000";
 		else if(carCost.equals("5-10"))
 			carCost="cost between 500000 and 1000000";
-		else
+		else if(carCost.equals(">10"))
 			carCost="cost > 1000000";
 		
+		
 		CustomerDao dao = new CustomerDaoImpl();
-				
+		
 		if(!carType.equals("null"))
 		{
 			List<CarBean> listCarType = dao.getTypeFilter(carType);
@@ -58,12 +62,28 @@ public class ProcessFilterServlet extends HttpServlet {
 			System.out.println("In costif");
 			System.out.println(listCarCost);
 			request.setAttribute("Cars", listCarCost);
+		}else if(!clearFilter.equals(null)) {
+			
+			List<CarBean> cars = dao.getAllCars();
+			List<String> colors = dao.getColorDropDown();
+			List<String> types = dao.getTypeDropDown();
+			
+			System.out.println(colors);
+			request.setAttribute("Cars", cars);
+			request.setAttribute("Colors", colors);
+			request.setAttribute("Types", types);
+			request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		}
-//		else
-//		{
-////			List<CarBean> listCars = dao.getFilterAll(carName, carAge, carCost, carColor, carType);
-////			request.setAttribute("Cars", listCars);
+		else {
+			List<CarBean> listCars = dao.getAllCars();
+			request.setAttribute("Cars", listCars);
+		}
+//		else{
+//			List<CarBean> listCars = dao.getFilterAll(carName, carAge, carCost, carColor, carType);
+//			request.setAttribute("Cars", listCars);
 //		}
+//		
+		
 		request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		
 	}
