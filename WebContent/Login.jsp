@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page errorPage="ErrorPage.jsp" %>
+<%@ include file="HeaderLogin.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -27,14 +28,6 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-	<a class="navbar-brand"><Strong>AppName</Strong></a>
-	<form class="form-inline">
-		<!-- input class="form-control mr-sm-2" type="search" placeholder="Search"
-			aria-label="Search">
-		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-	</form>
-	</nav>
 	<!--  <div class="container h-100 row align-items-center">
 		<div class="container border border-primary">-->
 

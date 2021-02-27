@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
+    
+<%@ include file="HeaderLogout.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <!-- Latest compiled and minified CSS -->
@@ -32,18 +34,13 @@
 %>
 
 
-
-<form action = "LogoutServlet">
-	<input type = "submit" value = "Logout" style = "float: right;">
-</form>
-
 <% if((request.getAttribute("status") != null) && (request.getAttribute("status").equals("1"))){ %>
 	<h3>Thank you, ${username}</h3>
 	<div class="alert alert-success">
     <strong>Success!</strong> DATA SAVED SUCCESSFULLY
   </div>
 <%}else{ %>
-<h3>Welcome ${username} !!</h3>
+
 <div class="container h-100">
 	<br>
 	<form action = "CarSell">

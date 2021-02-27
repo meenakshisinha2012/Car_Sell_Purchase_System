@@ -1,6 +1,6 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" errorPage="ErrorPage.jsp"%>
+    <%@ include file="HeaderLogout.jsp" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -28,10 +28,6 @@
 		response.sendRedirect("Login.jsp");
 %>
 
-<h3>Welcome ${username} !!</h3>
-<form action = "LogoutServlet">
-	<input type = "submit" value = "Logout" style = "float: right;">
-</form>
 
 <div class="container h-100"> <!-- Place page in centre -->
 <form name="seletionForm" action="ProcessFilterServlet">
