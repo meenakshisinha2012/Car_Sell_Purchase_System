@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.wu.bean.CarBean;
 import com.wu.dao.CustomerDao;
 import com.wu.daoImpl.CustomerDaoImpl;
+import com.wu.operation.CustomerOperation;
 
 
 @WebServlet("/ProcessFilterServlet")
@@ -43,17 +44,22 @@ public class ProcessFilterServlet extends HttpServlet {
 		
 		
 		CustomerDao dao = new CustomerDaoImpl();
-		
+		CustomerOperation custOps = new CustomerOperation();
+
 		if(!carType.equals("null"))
 		{
 			List<CarBean> listCarType = dao.getTypeFilter(carType);
 			System.out.println("In typeif");
+			
+			custOps.getDropdownData(request);
 			request.setAttribute("Cars", listCarType);
 		}
 		else if(!carColor.equals("null"))
 		{
 			List<CarBean> listCarColor = dao.getColorFilter(carColor);
 			System.out.println("In colorif");
+			
+			custOps.getDropdownData(request);
 			request.setAttribute("Cars", listCarColor);
 		}
 		else if(!carCost.equals("null"))
@@ -61,17 +67,12 @@ public class ProcessFilterServlet extends HttpServlet {
 			List<CarBean> listCarCost = dao.getCostFilter(carCost);
 			System.out.println("In costif");
 			System.out.println(listCarCost);
+			
+			custOps.getDropdownData(request);
 			request.setAttribute("Cars", listCarCost);
 		}else if(!clearFilter.equals(null)) {
 			
-			List<CarBean> cars = dao.getAllCars();
-			List<String> colors = dao.getColorDropDown();
-			List<String> types = dao.getTypeDropDown();
-			
-			System.out.println(colors);
-			request.setAttribute("Cars", cars);
-			request.setAttribute("Colors", colors);
-			request.setAttribute("Types", types);
+			custOps.getDropdownData(request);
 			request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		}
 		else {

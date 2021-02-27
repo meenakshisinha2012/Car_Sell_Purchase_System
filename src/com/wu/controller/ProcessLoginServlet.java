@@ -17,6 +17,7 @@ import com.wu.dao.CustomerDao;
 import com.wu.dao.LoginDao;
 import com.wu.daoImpl.CustomerDaoImpl;
 import com.wu.daoImpl.LoginDaoImpl;
+import com.wu.operation.CustomerOperation;
 
 
 @WebServlet("/ProcessLoginServlet")
@@ -49,15 +50,15 @@ public class ProcessLoginServlet extends HttpServlet {
 		if(resultValidate.equals("Seller")){
 			request.getRequestDispatcher("Seller.jsp").forward(request, response);
 		}else if(resultValidate.equals("Customer")){
-			CustomerDao custdao = new CustomerDaoImpl();
-			List<CarBean> cars = custdao.getAllCars();
-			List<String> colors = custdao.getColorDropDown();
-			List<String> types = custdao.getTypeDropDown();
+			CustomerOperation custOps = new CustomerOperation();
+//			custOps.getDropdownData(request);
+//			
+//			System.out.println("Req "+request);
+//			
+//			request.setAttribute("Cars", req.getAttribute("Cars"));
+//			request.setAttribute("Colors", req.getAttribute("Colors"));
+//			request.setAttribute("Types", req.getAttribute("Types"));
 			
-			System.out.println(colors);
-			request.setAttribute("Cars", cars);
-			request.setAttribute("Colors", colors);
-			request.setAttribute("Types", types);
 			request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		}else{
 			request.setAttribute("errorMsg", resultValidate);
