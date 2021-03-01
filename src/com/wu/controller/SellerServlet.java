@@ -13,7 +13,7 @@ import com.wu.bean.CarBean;
 import com.wu.dao.SellerDao;
 import com.wu.daoImpl.SellerDaoImpl;
 
-@WebServlet("/CarSell")
+@WebServlet("/SellerServlet")
 public class SellerServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,12 +52,20 @@ public class SellerServlet extends HttpServlet {
 		SellerDao sellerDao = new SellerDaoImpl();
 		if(sellerDao.storeCarData(car) > 0)
 		{
+			request.setAttribute("status","1");
+			System.out.println(request.getAttribute("status"));
 			System.out.println("Successfully inserted!!");
+			request.getRequestDispatcher("Seller.jsp").forward(request, response);
+			
 		}
 		else
 		{
+			request.setAttribute("status","0");
 			System.out.println("Insertion unsuccessfull!!");
+			request.getRequestDispatcher("Seller.jsp").forward(request, response);
+
 		}
+//		out.println("<h1> DATA SAVED SUCCESSFULLY!!");
 	}
 
 }

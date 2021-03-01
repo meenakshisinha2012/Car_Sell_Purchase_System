@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page errorPage="ErrorPage.jsp" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page errorPage="ErrorPage.jsp"%>
+<%@ include file="HeaderLogin.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -23,61 +25,31 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
-
-	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-	<a class="navbar-brand"><Strong>AppName</Strong></a>
-	<form class="form-inline">
-		<!-- input class="form-control mr-sm-2" type="search" placeholder="Search"
-			aria-label="Search">
-		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-	</form>
-	</nav>
-	<!--  <div class="container h-100 row align-items-center">
-		<div class="container border border-primary">-->
-
-
-			<div class="container container-table border border-primary">
-				<div class="row vertical-center-row">
-					<div class="text-center col-md-4 col-md-offset-4 ">
-						<form method="post" action="ProcessLoginServlet">
-							<div class="form-group">
-								<label for="username">Username</label> <input
-									class="form-group mx-sm-3 mb-2 type="
-									username" class="form-control" id="username"
-									aria-describedby="username" name="username"
-									placeholder="Enter username">
-							</div>
-							<div class="form-group">
-								<label for="password">Password</label> 
-									<input class="form-group mx-sm-3 mb-2" type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-							</div>
-							<button type="submit" class="btn btn-primary">Login</button>
-						</form>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- <div class="row">
-			<div class="col-4 m-5 ">
-				<form method= "post" action="ProcessLoginServlet">
+	<div class="container container-table border border-primary">
+		<div class="row vertical-center-row" style="font-size: 25px; font-family: Arial, sans-serif;">
+			<div class="col-md-4 col-md-offset-4 text-center">
+				<form method="post" action="ProcessLoginServlet">
 					<div class="form-group">
-						<label for="username">Username</label> 
-						<input class="form-group mx-sm-3 mb-2 type="username" class="form-control" id="username" aria-describedby="username" name="username" placeholder="Enter username"> 
+						<label for="username">Username</label> <input
+							class="form-group mx-sm-3 mb-2 type="
+							username" class="form-control" id="username"
+							aria-describedby="username" name="username"
+							placeholder="Enter username">
 					</div>
 					<div class="form-group">
-						<label for="password">Password</label> 
-						<input class="form-group mx-sm-3 mb-2 type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+						<label for="password">Password</label> <input
+							class="form-group mx-sm-3 mb-2" type="password"
+							class="form-control" id="password" name="password"
+							placeholder="Enter password">
 					</div>
-					<button type="submit" class="btn btn-primary">Login</button>
+					<button type="submit" class="btn-centre btn btn-primary btn-lg">Login</button>
 				</form>
-
 			</div>
-		</div> -->
-		<!--  </div>
-	</div>-->
+		</div>
+	</div>
+
 </body>
 </html>

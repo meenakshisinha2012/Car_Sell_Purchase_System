@@ -17,7 +17,8 @@ import com.wu.dao.CustomerDao;
 import com.wu.dao.LoginDao;
 import com.wu.daoImpl.CustomerDaoImpl;
 import com.wu.daoImpl.LoginDaoImpl;
-import com.wu.operation.CustomerOperation;
+
+import com.wu.operations.CustomerOperation;
 
 
 @WebServlet("/ProcessLoginServlet")
@@ -27,6 +28,7 @@ public class ProcessLoginServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
+		CustomerOperation custOps = new CustomerOperation();
 		// Fetch "USERNAME" & "PASSWORD" from login.jsp
 		String username = request.getParameter("username");
 		String password  = request.getParameter("password");
@@ -49,16 +51,13 @@ public class ProcessLoginServlet extends HttpServlet {
 		
 		if(resultValidate.equals("Seller")){
 			request.getRequestDispatcher("Seller.jsp").forward(request, response);
-		}else if(resultValidate.equals("Customer")){
-			CustomerOperation custOps = new CustomerOperation();
-//			custOps.getDropdownData(request);
-//			
-//			System.out.println("Req "+request);
-//			
-//			request.setAttribute("Cars", req.getAttribute("Cars"));
-//			request.setAttribute("Colors", req.getAttribute("Colors"));
-//			request.setAttribute("Types", req.getAttribute("Types"));
-			
+		}else if(resultValidate.equals("Customer")){	
+			custOps.getDropdownData(request);
+
+			System.out.println(request);
+//			request.setAttribute("Cars", request.getAttribute("cars"));
+//			request.setAttribute("Colors", request.getAttribute("colors"));
+//			request.setAttribute("Types", request.getAttribute("types"));
 			request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		}else{
 			request.setAttribute("errorMsg", resultValidate);
