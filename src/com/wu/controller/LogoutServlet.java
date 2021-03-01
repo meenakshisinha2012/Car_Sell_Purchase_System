@@ -14,6 +14,8 @@ public class LogoutServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//Removing Session User name Attribute
+		
 		HttpSession session = request.getSession();
 		session.removeAttribute("username");
 		session.invalidate();
@@ -22,9 +24,7 @@ public class LogoutServlet extends HttpServlet {
 		request.getRequestDispatcher("Login.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

@@ -10,11 +10,13 @@ import com.wu.dao.LoginDao;
 import com.wu.hibernate.util.HibernateUtil;
 
 public class LoginDaoImpl implements LoginDao {
-
+	//Validating the user from database
 	@Override
 	public String validateUser(Users user) {
 		String resultMsg = "Error! User cannot be found. Please enter valid credentials";
+		//User bean object created
 		Users u1=new Users();
+		
 		try(Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
 			System.out.println("In try");
 			

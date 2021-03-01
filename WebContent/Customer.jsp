@@ -19,11 +19,7 @@
 </head>
 <body>
 <%
-	//response.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); 
-	//response.addHeader("Cache-Control", "post-check=0, pre-check=0");
-	//response.setHeader("Pragma","no-cache"); 
-	//response.setDateHeader ("Expires", 0); 
-	// To check if user is logged in or NOT
+
 	if(session.getAttribute("username") == null)
 		response.sendRedirect("Login.jsp");
 %>
@@ -32,6 +28,8 @@
 <div class="container h-100" style="margin-top: 20px;"> <!-- Place page in centre -->
 <form name="seletionForm" action="ProcessFilterServlet">
 
+
+<!--Filter Panel starts-->
 	<select class="form-group mx-sm-3 mb-2" id = "car_type" name = "carTypeDropDown">
   	<option value=null>Select Type</option>
   	<option value=null>---Select---</option>

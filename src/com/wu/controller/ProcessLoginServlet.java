@@ -27,7 +27,7 @@ public class ProcessLoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		
+		//CustomerOperation Object created
 		CustomerOperation custOps = new CustomerOperation();
 		// Fetch "USERNAME" & "PASSWORD" from login.jsp
 		String username = request.getParameter("username");
@@ -49,15 +49,13 @@ public class ProcessLoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("username", username);
 		
+		//Checking for User Type
 		if(resultValidate.equals("Seller")){
 			request.getRequestDispatcher("Seller.jsp").forward(request, response);
 		}else if(resultValidate.equals("Customer")){	
 			custOps.getDropdownData(request);
 
 			System.out.println(request);
-//			request.setAttribute("Cars", request.getAttribute("cars"));
-//			request.setAttribute("Colors", request.getAttribute("colors"));
-//			request.setAttribute("Types", request.getAttribute("types"));
 			request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		}else{
 			request.setAttribute("errorMsg", resultValidate);

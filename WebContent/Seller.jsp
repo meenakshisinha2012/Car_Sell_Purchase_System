@@ -33,7 +33,7 @@
 		response.sendRedirect("Login.jsp");
 %>
 
-
+<!-- To check status if data is saved starts-->
 <% if((request.getAttribute("status") != null) && (request.getAttribute("status").equals("1"))){ %>
 	<h3>Thank you, ${username}</h3>
 	<div class="alert alert-success">
@@ -48,7 +48,10 @@
 <% } 
 	else{ 
 %>
+<!-- To check status if data is saved ends-->
 
+
+<!--User input Fields ends-->
 <div class="container h-100">
 	<br>
 	<form action = "SellerServlet">
@@ -68,7 +71,6 @@
 	    <input type="text" class="form-control" id="car_name"  name = "carName" aria-describedby="carName" placeholder="Enter car name" required><br>
 
 
-
 	    <label for="car_age">Age&nbsp<span style="color: red;">*</span> :</label>
 	    <input type="text" class="form-control" id="car_age" name = "carAge" placeholder="Enter car age" required><br>
 
@@ -80,13 +82,13 @@
 	    <input type="text" class="form-control" id="car_color" name = "color" placeholder="Enter car color" required><br>
 
 	  <div class="form-group form-check">
-	    <input type="checkbox" class="form-check-input" name = "negotiable" id="negotiable" value = "Yes" required ><br>
+	    <input type="checkbox" class="form-check-input" name = "negotiable" id="negotiable" value = "Yes"  ><br>
 	    <label class="form-check-label" for="negotiable">Negotiable</label>
 	  </div>
 	  <button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 <%} %>
-
+<!---User inputs Fields ends-->
 </div>
 </body>
 </html>

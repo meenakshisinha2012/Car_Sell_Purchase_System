@@ -12,7 +12,7 @@ import com.wu.dao.CustomerDao;
 import com.wu.hibernate.util.HibernateUtil;
 
 public class CustomerDaoImpl implements CustomerDao {
-
+	//Function to display all the car data
 	public List<CarBean> getAllCars() {
 		String hql = "from CarBean";
 		List<CarBean> cars = new ArrayList<>();
@@ -26,7 +26,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
 		return cars;
 	}
-
+	//Function to fetch data for color drop down
 	public List<String> getColorDropDown() {
 		String hql = "select distinct color from CarBean";
 		List<String> colors = new ArrayList<>();
@@ -40,7 +40,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		System.out.println(colors);
 		return colors;
 	}
-
+	//Function to fetch data for type drop down
 	public List<String> getTypeDropDown() {
 		String hql = "select distinct type from CarBean";
 		List<String> types = new ArrayList<>();
@@ -54,7 +54,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		System.out.println(types);
 		return types;
 	}
-
+	//Function to fetch data for filter drop down
 	public List<CarBean> getTypeFilter(String type) {
 		String hql = "from CarBean where type = :type";
 		List<CarBean> cars = new ArrayList<>();
@@ -68,7 +68,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return cars;
 	}
-	
+	//Function to filter data according to color 
 	public List<CarBean> getColorFilter(String color) {
 		String hql = "from CarBean where color = :color";
 		List<CarBean> cars = new ArrayList<>();
@@ -82,7 +82,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return cars;
 	}
-	
+	//Function to filter data according to cost 
 	public List<CarBean> getCostFilter(String cost) {
 		String hql = "from CarBean where " + cost;
 		List<CarBean> cars = new ArrayList<>();
@@ -95,7 +95,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return cars;
 	}
-
+	//Function to filter data according to all the filters available 
 	public List<CarBean> getFilterAll(String carName, String carAge, String carCost, String carColor, String carType) {
 		String hql = "from CarBean where  car_name" + carName +"and age="+carAge+"and cost="+carCost+"and color="+carColor+"and type="+carType;
 		List<CarBean> cars = new ArrayList<>();

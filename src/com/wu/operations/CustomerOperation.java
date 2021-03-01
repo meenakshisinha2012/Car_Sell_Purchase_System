@@ -10,8 +10,6 @@ import com.wu.dao.CustomerDao;
 import com.wu.daoImpl.CustomerDaoImpl;
 
 public class CustomerOperation {
-//	private HttpServletRequest request= null;
-//	private HttpServletResponse response=null;
 	
 	public void getDropdownData(HttpServletRequest request){
 		CustomerDao custdao = new CustomerDaoImpl();
@@ -29,6 +27,5 @@ public class CustomerOperation {
 		
 		System.out.println("Req from ops" + request );
 		
-//		return request;
 	}
 }

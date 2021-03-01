@@ -9,7 +9,7 @@ import com.wu.dao.SellerDao;
 import com.wu.hibernate.util.HibernateUtil;
 
 public class SellerDaoImpl implements SellerDao {
-
+	//Saving seller's car data to database
 	@Override
 	public int storeCarData(CarBean car) {
 		try(Session session = HibernateUtil.getSessionFactory().getCurrentSession())

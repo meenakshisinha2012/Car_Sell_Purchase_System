@@ -21,7 +21,9 @@ public class ProcessFilterServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+
 		response.setContentType("text/html");
+		//Getting Request Parameters 
 		String carName = request.getParameter("carname");
 		String carAge = request.getParameter("age");
 		String carCost = request.getParameter("CostRangeDropDown");
@@ -31,15 +33,17 @@ public class ProcessFilterServlet extends HttpServlet {
 		
 		//CustomerOperation Object Created
 		CustomerOperation custOps = new CustomerOperation();
-
+		//CustomerDAO Object Created
+		CustomerDao dao = new CustomerDaoImpl();
 		
-		 System.out.println("CarName " +carName);
-		 System.out.println("Age "+ carAge);
-		 System.out.println("Type "+carType);
-		 System.out.println("Color "+carColor);
-		System.out.println("Cost "+carCost);
+//		 System.out.println("CarName " +carName);
+//		 System.out.println("Age "+ carAge);
+//		 System.out.println("Type "+carType);
+//		 System.out.println("Color "+carColor);
+//		System.out.println("Cost "+carCost);
 		
 		
+		//Checking for cost drop down value
 		if(carCost.equals("<5"))
 			carCost = "cost < 500000";
 		else if(carCost.equals("5-10"))
@@ -47,45 +51,39 @@ public class ProcessFilterServlet extends HttpServlet {
 		else if(carCost.equals(">10"))
 			carCost="cost > 1000000";
 		
-		
-		CustomerDao dao = new CustomerDaoImpl();
-
+		//Checking for null values in request parameters
 		if(!carType.equals("null"))
 		{
 			List<CarBean> listCarType = dao.getTypeFilter(carType);
-			System.out.println("In typeif");
+//			System.out.println("In typeif");
 			custOps.getDropdownData(request);
 			request.setAttribute("Cars", listCarType);
 		}
 		else if(!carColor.equals("null"))
 		{
 			List<CarBean> listCarColor = dao.getColorFilter(carColor);
-			System.out.println("In colorif");
+//			System.out.println("In colorif");
 			custOps.getDropdownData(request);
 			request.setAttribute("Cars", listCarColor);
 		}
 		else if(!carCost.equals("null"))
 		{
 			List<CarBean> listCarCost = dao.getCostFilter(carCost);
-			System.out.println("In costif");
-			System.out.println(listCarCost);
+//			System.out.println("In costif");
+//			System.out.println(listCarCost);
 			custOps.getDropdownData(request);
 			request.setAttribute("Cars", listCarCost);
 		}else if(!clearFilter.equals(null)) {
 			
 			custOps.getDropdownData(request);
-			request.getRequestDispatcher("Customer.jsp").forward(request, response);
+//			request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		}
 		else {
 			List<CarBean> listCars = dao.getAllCars();
 			request.setAttribute("Cars", listCars);
 		}
-//		else{
-//			List<CarBean> listCars = dao.getFilterAll(carName, carAge, carCost, carColor, carType);
-//			request.setAttribute("Cars", listCars);
-//		}
-//		
 		
+		//Forwarding the request to Customer.jsp
 		request.getRequestDispatcher("Customer.jsp").forward(request, response);
 		
 	}

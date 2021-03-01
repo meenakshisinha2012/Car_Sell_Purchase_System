@@ -29,6 +29,7 @@ public class SellerServlet extends HttpServlet {
 		int age = Integer.parseInt(request.getParameter("carAge"));
 		int cost = Integer.parseInt(request.getParameter("carCost"));
 		
+		//Check if the negotiable checkbox is checked
 		if(request.getParameter("negotiable")!=null)
 		{
 			negotiable = "1";
@@ -65,7 +66,7 @@ public class SellerServlet extends HttpServlet {
 			request.getRequestDispatcher("Seller.jsp").forward(request, response);
 
 		}
-//		out.println("<h1> DATA SAVED SUCCESSFULLY!!");
+		
 	}
 
 }
