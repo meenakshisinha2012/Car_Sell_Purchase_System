@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Error</title>
 </head>
 <body>
 	<h1 style="background-color: red; font-weight: bold;">Something went wrong!!!</h1>
-	<a href="Login.jsp">Please Login again... Taki sab theek chale</a>
+	<a href="Login.jsp">Please Login again...</a>
 </body>
 </html>

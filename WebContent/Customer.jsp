@@ -29,7 +29,7 @@
 %>
 
 
-<div class="container h-100"> <!-- Place page in centre -->
+<div class="container h-100" style="margin-top: 20px;"> <!-- Place page in centre -->
 <form name="seletionForm" action="ProcessFilterServlet">
 
 	<select class="form-group mx-sm-3 mb-2" id = "car_type" name = "carTypeDropDown">
@@ -62,7 +62,7 @@
   	</select>	
   	
   	
-	<button type="submit" class="btn btn-primary mb-2">Search</button>
+	<button type="submit" class="btn btn-primary mb-2"><i class="fa fa-fw fa-search"></i>Search</button>
 	<input type="submit" class="btn btn-secondary mb-2" name = "clearFilter" value = "Clear Filter">
 
 <br>
@@ -81,6 +81,7 @@
 		      <th scope="col">Color</th>
 		      <th scope="col">Age</th>
 		      <th scope="col">Cost</th>
+		      <th scope="col">Is Negotiable</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -91,6 +92,12 @@
 		      <td>${items.getColor() }</td>
 		      <td>${items.getAge() }</td>
 		      <td>${items.getCost() }</td>
+		   	  <c:if test="${items.getNegotiable().equals('1')}">
+		      <td>Yes</td>
+		       </c:if>
+		      <c:if test="${items.getNegotiable().equals('0')}">
+		      <td>No</td>
+		      </c:if>
 		    </tr>
 		    </c:forEach>
 		  </tbody>

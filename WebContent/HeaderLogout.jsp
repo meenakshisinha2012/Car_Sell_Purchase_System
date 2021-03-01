@@ -12,8 +12,7 @@
 	%>
 	 
 	 <div class="navbar">
-	 	<h4 style="color:white; ">Welcome ${username}</h4>
-	 	<a href="LogoutServlet"><i class="fa fa-fw fa-power-off"></i> Logout</a> 
-		
+	 	<p><span style="color:white; font-size: 24 ">&nbspWelcome ${username}</span></p> 
+	 	<a href="LogoutServlet"><i class="fa fa-fw fa-power-off"></i> Logout</a>
 	</div>
 	

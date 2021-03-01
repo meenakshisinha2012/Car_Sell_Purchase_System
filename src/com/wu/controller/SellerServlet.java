@@ -13,7 +13,7 @@ import com.wu.bean.CarBean;
 import com.wu.dao.SellerDao;
 import com.wu.daoImpl.SellerDaoImpl;
 
-@WebServlet("/CarSell")
+@WebServlet("/SellerServlet")
 public class SellerServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
